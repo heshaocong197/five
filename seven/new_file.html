@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			document.write('<h2>练习题二第1题</h2>');
+			let a=12;
+			let b=3;
+			if(a<b){
+				document.write(`a的值是${a},b的值是${b},a小于b`);
+			}else if(a>b){
+				document.write(`a的值是${a},b的值是${b},a大于b`);
+			}else{
+				document.write(`a的值是${a},b的值是${b},a等于b`);
+			}
+			document.write('<hr>');
+			
+			
+			
+			
+			
+			document.write('<h2>练习题二第2题</h2>');
+			let c=25;
+			if(c%5===0){
+				document.write(`可以被5整除,${c/5}`);
+			}else{
+				document.write(`不可以被5整除`);
+			}
+			document.write('<hr>');
+			
+			
+			
+			
+			
+			document.write('<h2>练习题二第3题,100以内的偶数</h2>');
+			for(let i=0;i<=100;i++){
+				if(i%2===0){
+					document.write(i +'  ');
+				}
+			}
+			document.write('<hr>');
+			
+			
+			
+			
+			
+			document.write('<h2>练习题二第4题</h2>');
+			let i=1;
+			while(i<=100 ){
+				if(i%7===0){
+					document.write(i+'  ');
+				}
+					i++;
+			}
+			//另一种写法
+			//do{
+			// 	if(i%7===0){
+			// 		document.write(i+'  ');
+			// 	}
+			// 	i++;
+			// }while(i<=100);
+			document.write('<hr>');
+			
+			
+			
+			
+			
+			
+			document.write('<h2>练习题二第5题</h2>');
+			//为了避免和上面的变量重名，命名为a1,b1,c1
+			let a1=16;
+			let b1=14;
+			let c1=30;
+			if(a1>b1){
+				if(a1>c1){
+					document.write(a1);
+				}else{
+					document.write(c1);
+				}
+			}else{
+				if(b1>c1){
+					document.write(b1);
+					}else{
+					document.write(c1);	
+				}
+			}
+		
+			document.write('<hr>');
+			
+			
+			
+			
+			
+			document.write('<h2>练习题三第1题</h2>');
+			let o='';
+			let j='';
+			for(let i=0;i<=100;i++){
+				if(i%2===0){
+					o+=i+' ';
+				}else{
+					j+=i+' ';
+				}
+			}
+				document.write("100以内的偶数是:"+o);
+				document.write('<br>')
+				document.write("100以内的奇数是:"+j);
+				document.write('<hr>');
+			
+			
+			
+			
+    document.write('<h2>练习题三第2题</h2>');
+    let y=0;
+    let z='';
+    let test=(...q)=>{
+     // console.log(q[2]);
+     for(let i=q.length-1;i>=0;i--){
+       if(i===0){
+         z=z+q[i];
+        }else{
+         z=z+q[i]+'+';
+        }
+         y+=q[i];
+      }
+      return z+'='+y;
+    }
+    document.write(test(1,2,3,4,5,6,7,8,9));
+				
+		</script>
+	</body>
+</html>
