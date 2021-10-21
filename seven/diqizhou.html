@@ -18,14 +18,12 @@
 			const bb = document.querySelector('#b');
 			const para = document.querySelector('p');
 			const submit = document.querySelector('#submit');
-			submit.onclick = function(e) {
+			submit.onclick = function() {
 				if (aa.value === '' || bb.value === '') {
-					e.preventDefault(); //取消默认操作，阻止表单提交
-					para.textContent = '请输入正确的a和b的值';
+					para.textContent = '请输入a和b的值';
 				} else {
 					if (isNaN(aa.value) || isNaN(bb.value)) {
-						e.preventDefault(); //取消默认操作，阻止表单提交
-						para.textContent = '请输入正确的a和b的值';
+						para.textContent = '请输入正确的a和b的值（注意是数值哦）';
 					} else {
 						let a2 = Number(aa.value);
 						let b2 = Number(bb.value);
