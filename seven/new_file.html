@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,55 +5,90 @@
 		<title></title>
 	</head>
 	<body>
+		<h2>练习题三拓展题</h2>
+		<div>
+			请输入数字a：<input id="a" type="text">
+			请输入数字b：<input id="b" type="text">
+			<input id="submit" type="submit">
+		</div>
+		<p></p>
+
 		<script>
+			const aa = document.querySelector('#a');
+			const bb = document.querySelector('#b');
+			const para = document.querySelector('p');
+			const submit = document.querySelector('#submit');
+			submit.onclick = function(e) {
+				if (aa.value === '' || bb.value === '') {
+					e.preventDefault(); //取消默认操作，阻止表单提交
+					para.textContent = '请输入正确的a和b的值';
+				} else {
+					if (isNaN(aa.value) || isNaN(bb.value)) {
+						e.preventDefault(); //取消默认操作，阻止表单提交
+						para.textContent = '请输入正确的a和b的值';
+					} else {
+						let a2 = Number(aa.value);
+						let b2 = Number(bb.value);
+						if (a2 > b2) {
+							para.textContent = `a的值为${a2},b的值为${b2},a大于b`;
+						} else if (a2 < b2) {
+							para.textContent = `a的值为${a2},b的值为${b2},a小于b`;
+						} else {
+							para.textContent = `a的值为${a2},b的值为${b2},a等于b`;
+						}
+					}
+				}
+			}
+
+			document.write('<hr>');
 			document.write('<h2>练习题二第1题</h2>');
-			let a=12;
-			let b=3;
-			if(a<b){
+			let a = 12;
+			let b = 3;
+			if (a < b) {
 				document.write(`a的值是${a},b的值是${b},a小于b`);
-			}else if(a>b){
+			} else if (a > b) {
 				document.write(`a的值是${a},b的值是${b},a大于b`);
-			}else{
+			} else {
 				document.write(`a的值是${a},b的值是${b},a等于b`);
 			}
 			document.write('<hr>');
-			
-			
-			
-			
-			
+
+
+
+
+
 			document.write('<h2>练习题二第2题</h2>');
-			let c=25;
-			if(c%5===0){
+			let c = 25;
+			if (c % 5 === 0) {
 				document.write(`可以被5整除,${c/5}`);
-			}else{
+			} else {
 				document.write(`不可以被5整除`);
 			}
 			document.write('<hr>');
-			
-			
-			
-			
-			
+
+
+
+
+
 			document.write('<h2>练习题二第3题,100以内的偶数</h2>');
-			for(let i=0;i<=100;i++){
-				if(i%2===0){
-					document.write(i +'  ');
+			for (let i = 0; i <= 100; i++) {
+				if (i % 2 === 0) {
+					document.write(i + '  ');
 				}
 			}
 			document.write('<hr>');
-			
-			
-			
-			
-			
+
+
+
+
+
 			document.write('<h2>练习题二第4题</h2>');
-			let i=1;
-			while(i<=100 ){
-				if(i%7===0){
-					document.write(i+'  ');
+			let i = 1;
+			while (i <= 100) {
+				if (i % 7 === 0) {
+					document.write(i + '  ');
 				}
-					i++;
+				i++;
 			}
 			//另一种写法
 			//do{
@@ -64,72 +98,73 @@
 			// 	i++;
 			// }while(i<=100);
 			document.write('<hr>');
-			
-			
-			
-			
-			
-			
+
+
+
+
+
+
 			document.write('<h2>练习题二第5题</h2>');
 			//为了避免和上面的变量重名，命名为a1,b1,c1
-			let a1=16;
-			let b1=14;
-			let c1=30;
-			if(a1>b1){
-				if(a1>c1){
+			let a1 = 16;
+			let b1 = 14;
+			let c1 = 30;
+			if (a1 > b1) {
+				if (a1 > c1) {
 					document.write(a1);
-				}else{
+				} else {
 					document.write(c1);
 				}
-			}else{
-				if(b1>c1){
+			} else {
+				if (b1 > c1) {
 					document.write(b1);
-					}else{
-					document.write(c1);	
+				} else {
+					document.write(c1);
 				}
 			}
-		
+
 			document.write('<hr>');
-			
-			
-			
-			
-			
+
+
+
+
+
 			document.write('<h2>练习题三第1题</h2>');
-			let o='';
-			let j='';
-			for(let i=0;i<=100;i++){
-				if(i%2===0){
-					o+=i+' ';
-				}else{
-					j+=i+' ';
+			let o = '';
+			let j = '';
+			for (let i = 0; i <= 100; i++) {
+				if (i % 2 === 0) {
+					o += i + ' ';
+				} else {
+					j += i + ' ';
 				}
 			}
-				document.write("100以内的偶数是:"+o);
-				document.write('<br>')
-				document.write("100以内的奇数是:"+j);
-				document.write('<hr>');
-			
-			
-			
-			
-    document.write('<h2>练习题三第2题</h2>');
-    let y=0;
-    let z='';
-    let test=(...q)=>{
-     // console.log(q[2]);
-     for(let i=q.length-1;i>=0;i--){
-       if(i===0){
-         z=z+q[i];
-        }else{
-         z=z+q[i]+'+';
-        }
-         y+=q[i];
-      }
-      return z+'='+y;
-    }
-    document.write(test(1,2,3,4,5,6,7,8,9));
-				
+			document.write("100以内的偶数是:" + o);
+			document.write('<br>')
+			document.write("100以内的奇数是:" + j);
+			document.write('<hr>');
+
+
+
+
+			document.write('<h2>练习题三第2题</h2>');
+			let y = 0;
+			let z = '';
+			let test = (...x) => {
+				// console.log(q[2]);
+				for (let i = x.length - 1; i >= 0; i--) {
+					if (i === 0) {
+						z = z + x[i];
+					} else {
+						z = z + x[i] + '+';
+					}
+					y += x[i];
+				}
+				return z + '=' + y;
+			}
+			document.write(test(1, 2, 3, 4, 5, 6, 7, 8, 9));
+
+			document.write('<hr>');
 		</script>
 	</body>
 </html>
