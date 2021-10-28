@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			{ //第一题
+				document.write('<h2>练习题4，第一题</h2>');
+
+				function qf(name) {
+					let arr = [];
+					let str = ';'
+					name = name.split(',');
+					str = name.reverse().join('.');
+					return str
+				}
+				document.write(qf('1,2,3,4,5'));
+				document.write('<br>');
+				document.write(qf('1,a,b,c,d'));
+				document.write('<hr>');
+			}
+
+
+			{ //第二题
+				document.write('<h2>练习题4，第二题</h2>');
+
+				function jm(m) {
+					let n = m.lastIndexOf('.'); //获取最后一个点后的值
+					// let a=m.slice(n+1);//截取最后一个点后的内容
+					let b = m.slice(0, n + 1);
+					return b + '*';
+				}
+				document.write(jm('78.781.78.78'));
+				document.write('<hr>');
+			}
+
+
+			{ //第三题
+				document.write('<h2>练习题4，第三题</h2>');
+				let d = new Date();
+				let week = '日一二三四五六七';
+				document.write(
+					`${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日,${d.getHours()}:${d.getMinutes()}:${d.getSeconds()},星期${week[d.getDay()]}` +
+					'<br>');
+
+				document.write('<hr>');
+			}
+
+
+
+
+
+
+			{ //第四题
+				document.write('<h2>js练习题4,第四题</h2>')
+
+				function cd(z) {
+					let a = z.length;
+					if (a >= 2 && a <= 10) {
+						document.write('字符串长度符合要求');
+					} else {
+						document.write('字符串长度不符合要求');
+					}
+				}
+				cd("agefbadadklobe");
+				document.write('<hr>');
+			}
+
+
+			{//第五题
+				document.write('<h2>js练习题5，第二题</h2>');
+				let s = '';
+				for (let i = 0; i <= 3; i++) {
+					let a = Math.floor(Math.random() * 50);
+					s += a + ' ';
+				}
+				document.write(`产生的四位随机数为：${s}`);
+
+
+				document.write('<hr>');
+			}
+
+			
+			{
+						document.write('<h2>四则运算效果</h2>');
+						//输入框a
+						const input1=document.createElement('input');
+						input1.setAttribute('type','Text');
+						input1.setAttribute('placeholder','输入a的值');
+						document.body.appendChild(input1);
+						let txt=document.createTextNode('\n');
+						document.body.appendChild(txt);
+						
+						//下拉列表表示运算符
+						let mysel=document.createElement('select');
+						mysel.id='xuan';
+						document.body.appendChild(mysel);
+						let obj=document.getElementById('xuan');
+						obj.add(new Option('+',1));
+						obj.add(new Option('-',2));
+						obj.add(new Option('*',3));
+						obj.add(new Option('/',4));
+						
+						txt=document.createTextNode('\n');
+						document.body.appendChild(txt);
+						//输入框b
+						const input2=document.createElement('input');
+						input2.setAttribute('type','Text');
+						input2.setAttribute('placeholder','输入b的值');
+						document.body.appendChild(input2);
+						txt=document.createTextNode('\n');
+						document.body.appendChild(txt);
+						//用按钮表示开始运算
+						const button=document.createElement('button');
+						button.textContent='=';
+						document.body.appendChild(button);
+						txt=document.createTextNode('\n');
+						document.body.appendChild(txt);
+						//获取结果
+						const input3=document.createElement('input');
+						input3.setAttribute('type','Text');
+						input3.setAttribute('placeholder','结果');
+						input3.setAttribute('id','jieguo')
+						document.body.appendChild(input3);
+						//创建标签去显示错误信息
+						const para=document.createElement('p');
+						document.body.appendChild(para);
+						
+						button.addEventListener('click',function(){
+							let index=mysel.selectedIndex;//获取当前选中项的索引
+							let i=mysel.options[index].text;//获取当前选中项的文本内容
+							let jg=0;
+							let a=input1.value.trim();
+							let b=input2.value.trim();
+							let msg='';
+							if(a===''  || b===''){
+								msg='没有提供a或b的值';
+							}else if(isNaN(a)  || isNaN(b)){
+								msg='a或b的值不是数字';
+							}else{
+								a*=1;
+								b*=1;
+								//方法一，利用索引值
+								// if(index===0){
+								// 	jg=a+b;
+								// }
+								// if(index===1){
+								// 	jg=a-b;
+								// }
+								// if(index===2){
+								// 	jg=a*b;
+								// }
+								// if(index===3){
+								// 	if(b===0){
+								// 		msg='除数不可以为0';
+								// 	}else{
+								// 	jg=a/b;
+								// 	}
+								// }
+								//方法二，利用下拉菜单选中的文本内容
+								// if(i==='+'){
+								// 	jg=a+b;
+								// }
+								// if(i==='-'){
+								// 	jg=a-b;
+								// }
+								// if(i==='*'){
+								// 	jg=a*b;
+								// }
+								// if(i==='/'){
+								// 	if(b===0){
+								// 		msg='除数不可以为0';
+								// 	}else{
+								// 	jg=a/b;
+								// 	}
+								// }
+								
+								
+								switch (i) {
+									case '+':
+										jg = a + b;
+										break;
+									case '-':
+										jg = a - b;
+										break;
+									case '*':
+										jg = a * b;
+										break;
+									case '/':
+										if (b === 0) {
+											msg = '除数不可以为0';
+										} else {
+											jg = a / b;
+										}
+										break;
+								}
+							}
+							para.textContent=msg;
+							document.getElementById('jieguo').value = jg;
+						});
+						
+						document.write()
+						function selAll(){
+							this.select();
+						}
+						input1.addEventListener('focus',selAll);
+						input2.addEventListener('focus',selAll);
+						document.write('<hr>');
+						}
+
+
+
+
+
+
+
+
+
+
+			
+				//方法三
+				// switch (i) {
+				// 	case '+':
+				// 		jg = a + b;
+				// 		break;
+				// 	case '-':
+				// 		jg = a - b;
+				// 		break;
+				// 	case '*':
+				// 		jg = a * b;
+				// 		break;
+				// 	case '/':
+				// 		if (b === 0) {
+				// 			msg = '除数不可以为0';
+				// 		} else {
+				// 			jg = a / b;
+				// 		}
+				// 		break;
+				// }
+			
+
+		</script>
+	</body>
+</html>
