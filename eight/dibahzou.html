@@ -211,65 +211,65 @@
 							
 							
 							
-						//{
+						{
 							document.write('<h2>动态时间更新</h2>');
 							//方法一
-						// 	document.write('<p id="a"></p >')
-						// 	let a=document.querySelector('#a');
-						// 	function getdate(){
-						// 	 let d=new Date();
-						// 	 let year=d.getFullYear();
-						// 	 let month=d.getMonth()+1;
-						// 	 let date=d.getDate();
-						// 	 let hour=d.getHours();
-						// 	 let minutes=d.getMinutes();
-						// 	 let second=d.getSeconds();
-						// 	 let week = '日一二三四五六七';
-						// 	 let day=d.getDay();
-						// 	 let time= year+"年"+month+"月"+date+"日 "+hour+":"+minutes+":"+second+" 星期"+week[day];
-						// 	 a.textContent=time;
-						// 	}
-						// 	getdate();
-						// 	setInterval(getdate,1000);
-						// 	document.write('<hr>');
-						// }
-						
-						{
-							document.write('<p id="show"></p >')
-							let a=document.querySelector('#show');
-							
-							var timer = null;
-							
-							function displayClock(num) { //num是传入的startClock中的动态值
-								if (num < 10) {
-									return "0" + num;
-								} else {
-									return num;
-								}
+							document.write('<p id="a"></p >')
+							let a=document.querySelector('#a');
+							function getdate(){
+							 let d=new Date();
+							 let year=d.getFullYear();
+							 let month=d.getMonth()+1;
+							 let date=d.getDate();
+							 let hour=d.getHours();
+							 let minutes=d.getMinutes();
+							 let second=d.getSeconds();
+							 let week = '日一二三四五六七';
+							 let day=d.getDay();
+							 let time= year+"年"+month+"月"+date+"日 "+hour+":"+minutes+":"+second+" 星期"+week[day];
+							 a.textContent=time;
 							}
-							//停止计时
-							function stopClock() {
-								clearTimeout(timer);
-							}
-							//开始计时
-							function startClock() {
-								var time = new Date();
-								var year = time.getFullYear() + "年";
-								let month=time.getMonth()+1+'月';
-								let date=time.getDate()+'日';
-								
-								// let week = '日一二三四五六七';
-								// let day='星期'+    d.getDay();
-								
-								var hours = time.getHours() + ":";
-								var minutes=time.getMinutes()+ ":";
-								var seconds=time.getSeconds();
-								//显示时间
-								show.innerHTML = year + month+date+' '+hours + minutes + seconds; //在id为show的块区域显示
-								timer = setTimeout("startClock()", 1000); //延时器
-							}
+							getdate();
+							setInterval(getdate,1000);
 							document.write('<hr>');
 						}
+						
+						// {//方法二
+						// 	document.write('<p id="show"></p >')
+						// 	let a=document.querySelector('#show');
+							
+						// 	var timer = null;
+							
+						// 	function displayClock(num) { //num是传入的startClock中的动态值
+						// 		if (num < 10) {
+						// 			return "0" + num;
+						// 		} else {
+						// 			return num;
+						// 		}
+						// 	}
+						// 	//停止计时
+						// 	function stopClock() {
+						// 		clearTimeout(timer);
+						// 	}
+						// 	//开始计时
+						// 	function startClock() {
+						// 		var time = new Date();
+						// 		var year = time.getFullYear() + "年";
+						// 		let month=time.getMonth()+1+'月';
+						// 		let date=time.getDate()+'日';
+								
+						// 		// let week = '日一二三四五六七';
+						// 		// let day='星期'+    d.getDay();
+								
+						// 		var hours = time.getHours() + ":";
+						// 		var minutes=time.getMinutes()+ ":";
+						// 		var seconds=time.getSeconds();
+						// 		//显示时间
+						// 		show.innerHTML = year + month+date+' '+hours + minutes + seconds; //在id为show的块区域显示
+						// 		timer = setTimeout("startClock()", 1000); //延时器
+						// 	}
+						// 	document.write('<hr>');
+						// }
 
 
 
