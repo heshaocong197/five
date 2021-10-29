@@ -4,21 +4,20 @@
 		<meta charset="utf-8">
 		<title></title>
 	</head>
-	<body>
+	<body onload="startClock()" onunload="stopClock()">
 		<script>
 			{ //第一题
 				document.write('<h2>练习题4，第一题</h2>');
 
 				function qf(name) {
-					let arr = [];
 					let str = ';'
-					name = name.split(',');
+					name = name.split('.');
 					str = name.reverse().join('.');
 					return str
 				}
-				document.write(qf('1,2,3,4,5'));
+				document.write(qf('1.2.3.4.5'));
 				document.write('<br>');
-				document.write(qf('1,a,b,c,d'));
+				document.write(qf('1.a.b.c.d'));
 				document.write('<hr>');
 			}
 
@@ -73,8 +72,8 @@
 				document.write('<h2>js练习题5，第二题</h2>');
 				let s = '';
 				for (let i = 0; i <= 3; i++) {
-					let a = Math.floor(Math.random() * 50);
-					s += a + ' ';
+					let a = Math.floor(Math.random() * 10);
+					s += a ;
 				}
 				document.write(`产生的四位随机数为：${s}`);
 
@@ -131,7 +130,7 @@
 						button.addEventListener('click',function(){
 							let index=mysel.selectedIndex;//获取当前选中项的索引
 							let i=mysel.options[index].text;//获取当前选中项的文本内容
-							let jg=0;
+							let jg=' ';
 							let a=input1.value.trim();
 							let b=input2.value.trim();
 							let msg='';
@@ -177,7 +176,7 @@
 								// 	}
 								// }
 								
-								
+								//方法三
 								switch (i) {
 									case '+':
 										jg = a + b;
@@ -209,7 +208,68 @@
 						input2.addEventListener('focus',selAll);
 						document.write('<hr>');
 						}
-
+							
+							
+							
+						//{
+							document.write('<h2>动态时间更新</h2>');
+							//方法一
+						// 	document.write('<p id="a"></p >')
+						// 	let a=document.querySelector('#a');
+						// 	function getdate(){
+						// 	 let d=new Date();
+						// 	 let year=d.getFullYear();
+						// 	 let month=d.getMonth()+1;
+						// 	 let date=d.getDate();
+						// 	 let hour=d.getHours();
+						// 	 let minutes=d.getMinutes();
+						// 	 let second=d.getSeconds();
+						// 	 let week = '日一二三四五六七';
+						// 	 let day=d.getDay();
+						// 	 let time= year+"年"+month+"月"+date+"日 "+hour+":"+minutes+":"+second+" 星期"+week[day];
+						// 	 a.textContent=time;
+						// 	}
+						// 	getdate();
+						// 	setInterval(getdate,1000);
+						// 	document.write('<hr>');
+						// }
+						
+						{
+							document.write('<p id="show"></p >')
+							let a=document.querySelector('#show');
+							
+							var timer = null;
+							
+							function displayClock(num) { //num是传入的startClock中的动态值
+								if (num < 10) {
+									return "0" + num;
+								} else {
+									return num;
+								}
+							}
+							//停止计时
+							function stopClock() {
+								clearTimeout(timer);
+							}
+							//开始计时
+							function startClock() {
+								var time = new Date();
+								var year = time.getFullYear() + "年";
+								let month=time.getMonth()+1+'月';
+								let date=time.getDate()+'日';
+								
+								// let week = '日一二三四五六七';
+								// let day='星期'+    d.getDay();
+								
+								var hours = time.getHours() + ":";
+								var minutes=time.getMinutes()+ ":";
+								var seconds=time.getSeconds();
+								//显示时间
+								show.innerHTML = year + month+date+' '+hours + minutes + seconds; //在id为show的块区域显示
+								timer = setTimeout("startClock()", 1000); //延时器
+							}
+							document.write('<hr>');
+						}
 
 
 
@@ -220,25 +280,7 @@
 
 
 			
-				//方法三
-				// switch (i) {
-				// 	case '+':
-				// 		jg = a + b;
-				// 		break;
-				// 	case '-':
-				// 		jg = a - b;
-				// 		break;
-				// 	case '*':
-				// 		jg = a * b;
-				// 		break;
-				// 	case '/':
-				// 		if (b === 0) {
-				// 			msg = '除数不可以为0';
-				// 		} else {
-				// 			jg = a / b;
-				// 		}
-				// 		break;
-				// }
+	
 			
 
 		</script>
